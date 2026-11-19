@@ -1,0 +1,894 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  font-family: 'Orbitron', Arial, sans-serif;
+  color: #ffffff;
+  background: #070914;
+  font-synthesis: none;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #070914;
+}
+
+button {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 7%;
+  background:
+    radial-gradient(ellipse at 50% 35%, #17143c 0%, transparent 48%),
+    linear-gradient(145deg, #080a18, #090817 60%, #100b24);
+}
+
+.ambient {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: .2;
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 15%;
+  left: -200px;
+  background: #00d9ff;
+}
+
+.ambient-two {
+  right: -180px;
+  top: 35%;
+  background: #a020ff;
+}
+
+/* 顶部导航 */
+
+.header {
+  height: 86px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.logo span:last-child {
+  color: #00eaff;
+}
+
+.logo-icon {
+  color: #ff3cba;
+  margin-right: 8px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.main-nav a {
+  color: #9297b4;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: .25s;
+}
+
+.main-nav a:hover {
+  color: #00eaff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.language-button {
+  padding: 9px 15px;
+  color: #00eaff;
+  background: #00eaff0b;
+  border: 1px solid #00eaff55;
+  border-radius: 5px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.language-button:hover {
+  background: #00eaff20;
+  box-shadow: 0 0 18px #00eaff35;
+}
+
+.header-tag,
+.game-status {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #7d829f;
+}
+
+/* 首页主视觉 */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 90px;
+}
+
+.eyebrow {
+  color: #00eaff;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #00eaff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #00eaff;
+  margin-right: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(54px, 8vw, 100px);
+  line-height: 1.12;
+  letter-spacing: -4px;
+  margin: 28px 0 18px;
+  font-weight: 900;
+  text-shadow: 0 0 30px #7b45ff25;
+}
+
+.hero h1 span {
+  color: #00eaff;
+  text-shadow: 0 0 25px #00eaff80;
+}
+
+.subtitle {
+  color: #9b9bb7;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.orb-stage {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  margin: 10px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+  width: 230px;
+  height: 115px;
+  border: 1px solid #00eaff55;
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  box-shadow: 0 0 18px #00eaff12;
+}
+
+.orbit-two {
+  width: 190px;
+  height: 155px;
+  border-color: #d34bff55;
+  transform: rotate(55deg);
+}
+
+.main-orb {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #ffffff, #00eaff 25%, #1760d9 65%, #11114c);
+  box-shadow: 0 0 25px #00eaff, 0 0 70px #007aff88;
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.small-orb {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+
+.orb-pink {
+  background: radial-gradient(circle at 30% 25%, white, #ff42bd 40%, #8013c9);
+  box-shadow: 0 0 25px #ff42bd;
+  top: 28px;
+  left: 40px;
+}
+
+.orb-blue {
+  background: radial-gradient(circle at 30% 25%, white, #577bff 40%, #2722a9);
+  box-shadow: 0 0 25px #577bff;
+  right: 25px;
+  top: 65px;
+}
+
+.orb-green {
+  background: radial-gradient(circle at 30% 25%, white, #44ffc1 40%, #087d75);
+  box-shadow: 0 0 25px #44ffc1;
+  bottom: 12px;
+  left: 65px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* 游戏按钮 */
+
+.play-button {
+  min-width: 230px;
+  height: 58px;
+  padding: 0 28px;
+  border: 1px solid #00eaff;
+  border-radius: 7px;
+  background: linear-gradient(100deg, #087bce, #6336dc);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 0 25px #00bfff55;
+  transition: .25s;
+}
+
+.play-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px #00bfffaa;
+  filter: brightness(1.15);
+}
+
+.play-button:active {
+  transform: translateY(0) scale(.98);
+}
+
+.play-button span {
+  margin-right: 10px;
+}
+
+.game-status {
+  margin-top: 20px;
+  font-size: 9px;
+}
+
+/* 区块标题 */
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-label {
+  color: #00eaff;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.section-heading h2,
+.about-section h2 {
+  font-size: clamp(25px, 4vw, 38px);
+  letter-spacing: 2px;
+  margin: 16px 0;
+}
+
+/* 游戏特色 */
+
+.features-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 45px 0 100px;
+  scroll-margin-top: 35px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  position: relative;
+  padding: 32px 28px;
+  min-height: 180px;
+  border: 1px solid #ffffff16;
+  background: linear-gradient(145deg, #ffffff0b, #ffffff03);
+  border-radius: 10px;
+  transition: .3s;
+  overflow: hidden;
+}
+
+.feature::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -55px;
+  bottom: -55px;
+  border-radius: 50%;
+  background: #00eaff;
+  filter: blur(55px);
+  opacity: 0;
+  transition: .3s;
+}
+
+.feature:hover {
+  border-color: #00eaff66;
+  transform: translateY(-6px);
+  background: #ffffff0b;
+}
+
+.feature:hover::after {
+  opacity: .35;
+}
+
+.feature > span {
+  color: #00eaff;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.feature h3 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: 22px;
+}
+
+.feature p {
+  color: #9295ad;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 关于游戏 */
+
+.about-section {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 65px 20px 90px;
+  text-align: center;
+  border-top: 1px solid #ffffff12;
+  scroll-margin-top: 35px;
+}
+
+.about-section h2 {
+  margin-top: 22px;
+}
+
+.about-section p {
+  color: #9295ad;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.secondary-play {
+  margin-top: 25px;
+}
+
+/* 页脚 */
+
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #ffffff12;
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #666b85;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* 游戏页面 */
+
+.game-page {
+  min-height: 100vh;
+  padding: 0 20px 30px;
+  color: white;
+  background:
+    radial-gradient(ellipse at 50% 45%, #17133c, transparent 65%),
+    #080a18;
+}
+
+.game-header {
+  max-width: 1100px;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff18;
+}
+
+.game-header button {
+  background: transparent;
+  color: #00eaff;
+  border: 1px solid #00eaff66;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.game-header button:hover {
+  background: #00eaff15;
+  box-shadow: 0 0 15px #00eaff25;
+}
+
+.game-logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.game-logo span {
+  color: #00eaff;
+}
+
+.game-version {
+  font-size: 11px;
+  color: #8589a7;
+  letter-spacing: 2px;
+}
+
+.game-panel {
+  width: 100%;
+  max-width: 1000px;
+  margin: 35px auto 0;
+  text-align: center;
+}
+
+.game-panel h1 {
+  font-size: 30px;
+  letter-spacing: 4px;
+  margin: 0;
+  color: #00eaff;
+}
+
+.game-panel p {
+  color: #8589a7;
+  font-size: 13px;
+}
+
+#game-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 25px auto 0;
+  border: 1px solid #00eaff55;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 35px #00eaff20;
+  background: #080a18;
+}
+
+#game-container canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* 平板适配 */
+
+@media (max-width: 900px) {
+  .page {
+    padding: 0 5%;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  .header-tag {
+    display: none;
+  }
+
+  .hero {
+    min-height: 660px;
+  }
+}
+
+/* 手机适配 */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0 20px;
+  }
+
+  .header {
+    height: 70px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo-icon {
+    margin-right: 4px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .language-button {
+    padding: 8px 12px;
+  }
+
+  .hero {
+    min-height: 620px;
+    padding-top: 75px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .orb-stage {
+    transform: scale(.9);
+    margin: 0 0 10px;
+  }
+
+  .play-button {
+    min-width: 210px;
+    height: 54px;
+    font-size: 12px;
+  }
+
+  .game-status {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .features-section {
+    padding: 35px 0 65px;
+  }
+
+  .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .feature {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .feature h3 {
+    margin-top: 14px;
+  }
+
+  .about-section {
+    padding: 55px 5px 65px;
+  }
+
+  .about-section h2 {
+    font-size: 25px;
+  }
+
+  .about-section p {
+    font-size: 13px;
+  }
+
+  footer {
+    gap: 15px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+
+  .game-page {
+    padding: 0 12px 25px;
+  }
+
+  .game-header {
+    height: 65px;
+  }
+
+  .game-header button {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .game-logo {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .game-version {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .game-panel {
+    margin-top: 25px;
+  }
+
+  .game-panel h1 {
+    font-size: 22px;
+  }
+
+  #game-container {
+    margin-top: 15px;
+  }
+}
+
+/* 游戏关卡展示 */
+
+.levels-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 65px 0 100px;
+  border-top: 1px solid #ffffff12;
+  scroll-margin-top: 35px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.level-card {
+  position: relative;
+  min-height: 260px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid #ffffff18;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff0b, #ffffff03);
+  overflow: hidden;
+  transition: .3s;
+}
+
+.active-level:hover {
+  transform: translateY(-6px);
+  border-color: #00eaff88;
+  box-shadow: 0 0 30px #00eaff16;
+}
+
+.locked-level {
+  opacity: .55;
+}
+
+.level-number {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: #777d9c;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.level-orb {
+  width: 62px;
+  height: 62px;
+  margin: 25px auto 20px;
+  border-radius: 50%;
+}
+
+.cyan-orb {
+  background: radial-gradient(circle at 30% 25%, white, #00eaff 35%, #1555be 75%);
+  box-shadow: 0 0 20px #00eaff, 0 0 45px #00eaff55;
+}
+
+.purple-orb {
+  background: radial-gradient(circle at 30% 25%, white, #a64dff 35%, #4711a9 75%);
+  box-shadow: 0 0 20px #a64dff, 0 0 45px #a64dff55;
+}
+
+.pink-orb {
+  background: radial-gradient(circle at 30% 25%, white, #ff42bd 35%, #8013c9 75%);
+  box-shadow: 0 0 20px #ff42bd, 0 0 45px #ff42bd55;
+}
+
+.level-card h3 {
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin: 12px 0;
+}
+
+.level-card p {
+  min-height: 36px;
+  color: #9295ad;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.level-status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border: 1px solid #00eaff55;
+  border-radius: 4px;
+  color: #00eaff;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.locked-level .level-status {
+  border-color: #777d9c55;
+  color: #8589a7;
+}
+
+/* 玩家排行榜 */
+
+.leaderboard-section {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 65px 0 100px;
+  border-top: 1px solid #ffffff12;
+  scroll-margin-top: 35px;
+}
+
+.leaderboard {
+  border: 1px solid #ffffff1c;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff05;
+}
+
+.leaderboard-row {
+  min-height: 65px;
+  display: grid;
+  grid-template-columns: 90px 1fr 110px;
+  align-items: center;
+  gap: 15px;
+  padding: 0 28px;
+  border-bottom: 1px solid #ffffff12;
+  color: #c5c7dc;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-head {
+  min-height: 48px;
+  color: #737995;
+  background: #ffffff08;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.leaderboard-row strong {
+  color: #00eaff;
+  text-align: right;
+  font-size: 14px;
+}
+
+.rank-gold {
+  color: #ffd76a;
+  font-weight: 800;
+}
+
+.rank-silver {
+  color: #c4d4ed;
+  font-weight: 800;
+}
+
+.rank-bronze {
+  color: #d99b70;
+  font-weight: 800;
+}
+
+.leaderboard-note {
+  margin-top: 18px;
+  text-align: center;
+  color: #626985;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* 手机端关卡和排行榜 */
+
+@media (max-width: 600px) {
+  .levels-section,
+  .leaderboard-section {
+    padding: 50px 0 65px;
+  }
+
+  .level-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .level-card {
+    min-height: 235px;
+  }
+
+  .leaderboard-row {
+    grid-template-columns: 55px 1fr 75px;
+    gap: 8px;
+    padding: 0 14px;
+    font-size: 9px;
+  }
+
+  .leaderboard-row strong {
+    font-size: 12px;
+  }
+
+  .leaderboard-head {
+    font-size: 8px;
+  }
+
+  .leaderboard-note {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
